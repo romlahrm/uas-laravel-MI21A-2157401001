@@ -29,10 +29,14 @@ class DaftarController extends Controller
         );
     
             $data['password']=Hash::make($data['password']);
-    
             User::create($data);
             return redirect('/login')->with('success', 'Pendaftaran Berhasil');
-        // } catch (Exception $e) {
+        //     if () {
+        //     } else {
+        //         // Session::flash('danger', 'Gagal simpan user');
+        //         return redirect('/daftar')->with('success', 'Pendaftaran Gagal');
+        //     }
+        // // } catch (Exception $e) {
         //     Session::flash('danger', 'Gagal simpan user');
         // }
         // return redirect('/user');

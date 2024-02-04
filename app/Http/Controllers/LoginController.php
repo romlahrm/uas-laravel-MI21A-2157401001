@@ -14,10 +14,17 @@ class LoginController extends Controller
         ]);
     }
     public function submitLogin(Request $request){
-        $email      = $request->email;
-        $password   = $request->password;
+        $data = $request->validate([
+                'email' => 'required',
+                'password' => 'required'
+            ],
+             [
+                'email.required'=> 'Email masih kosong',
+                'password.required'=> 'Password masih kosong',
+            ]
+        );
 
-        if (Auth::attempt(['email' => $email, 'password' => $password])) {
+        if (Auth::attempt($data)) {
             return redirect('/home');
         } else {
             return redirect('/login')->with('danger', 'Email / Password salah');
