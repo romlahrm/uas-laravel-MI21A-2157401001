@@ -19,9 +19,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [WelcomeController::class, 'welcome']);
 Route::get('/logout', [WelcomeController::class, 'logout']);
-Route::get('/login', [LoginController::class, 'login']);
+Route::get('/login', [LoginController::class, 'login'])->name('login');
 // Route::post('/beranda', [LoginController::class, 'beranda']);
 Route::get('/home', [LoginController::class, 'home']);
 Route::post('/submitLogin', [LoginController::class, 'submitLogin']);
 Route::get('/daftar', [DaftarController::class, 'daftar']);
-Route::post('/simpan', [DaftarController::class, 'simpan']);
+Route::post('/simpan', [DaftarController::class, 'simpan'])->name('simpan');

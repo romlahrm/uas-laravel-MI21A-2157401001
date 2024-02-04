@@ -5,9 +5,12 @@
     <div class="row sub-login">
         <div class="col-md-6 wrap-login">
                 <h1 class="text-center">Login</h1>
-                    @if(Session::has('danger'))
-                <p style="color: rgb(248, 75, 44); font-size: 20px;">{{ Session::get('danger') }}</p>
-              @endif
+                @if(Session::has('danger'))
+                    <p style="color: rgb(248, 75, 44); font-size: 20px;">{{ Session::get('danger') }}</p>
+                @endif
+                @if(Session::has('success'))
+                    <p style="font-size: 20px;">{{ Session::get('success') }}</p>
+                @endif
                 <form action="/submitLogin" method="POST">
                     @csrf
                     <div class="mb-3">

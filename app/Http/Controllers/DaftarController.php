@@ -16,23 +16,22 @@ class DaftarController extends Controller
         ]);
     }
     public function simpan(Request $request){
-        $name     = $request->name;
-        $email    = $request->email;
-        $password = $request->password;
-
-        $user = new User();
-        $user->name     = $name;
-        $user->email    = $email;
-        $user->password = Hash::make($password);
-
-        // try {
-
-            if ($user->save()) {
-                return redirect('/login');
-            } else {
-                Session::flash('danger', 'Gagal simpan user');
-            }
-
+            $data = $request->validate([
+                'name' => 'required',
+                'email' => 'required',
+                'password' => 'required'
+            ],
+             [
+                'name.required'=> 'Nama masih kosong',
+                'email.required'=> 'Email masih kosong',
+                'password.required'=> 'Password masih kosong',
+            ]
+        );
+    
+            $data['password']=Hash::make($data['password']);
+    
+            User::create($data);
+            return redirect('/login')->with('success', 'Pendaftaran Berhasil');
         // } catch (Exception $e) {
         //     Session::flash('danger', 'Gagal simpan user');
         // }

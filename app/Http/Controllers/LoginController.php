@@ -24,11 +24,6 @@ class LoginController extends Controller
         }   
     }
     public function home(Request $request){
-        // $data = [
-        //     'email' => $request->input('email'),
-        //     'password' => $request->input('password')
-        // ];
-        // dd($data);
         return view('home', [
             'title' => 'Home',
         ]);
