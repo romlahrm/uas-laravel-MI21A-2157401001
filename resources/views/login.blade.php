@@ -1,13 +1,14 @@
 @extends('layouts.partials')
 
 @section('container')
-<div class="row center">
-    <div class="col mt-5">
-        <div class="card">
-            <div class="card-body">
+<div class="login">
+    <div class="row sub-login">
+        <div class="col-md-6 wrap-login">
                 <h1 class="text-center">Login</h1>
-                <form action="/beranda" method="POST">
-                    <p class="fst-italic text-danger">Silahkan Isi Data Terlebih Dahulu</p>
+                    @if(Session::has('danger'))
+                <p style="color: rgb(248, 75, 44); font-size: 20px;">{{ Session::get('danger') }}</p>
+              @endif
+                <form action="/submitLogin" method="POST">
                     @csrf
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
@@ -17,13 +18,10 @@
                         <label for="password" class="form-label">Password</label>
                         <input type="password" class="form-control" id="password" name="password">
                     </div>
-                    <div class="posisi">
                         <button type="submit" class="btn btn-primary">Login</button>
-                        <a href="/" class="btn btn-secondary"> Kembali </a>
-                    </div>
+                        <a href="/" class="btn btn-dark"> Kembali </a>
                 </form>
-            </div>
-        </div>
     </div>
+</div>
 </div>
 @endsection    

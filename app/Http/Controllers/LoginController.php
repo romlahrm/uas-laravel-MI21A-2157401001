@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -12,16 +13,25 @@ class LoginController extends Controller
             'title' => 'Login'
         ]);
     }
-    public function beranda(Request $request){
+    public function submitLogin(Request $request){
+        $email      = $request->email;
+        $password   = $request->password;
+
+        if (Auth::attempt(['email' => $email, 'password' => $password])) {
+            return redirect('/home');
+        } else {
+            return redirect('/login')->with('danger', 'Email / Password salah');
+        }   
+    }
+    public function home(Request $request){
         // $data = [
         //     'email' => $request->input('email'),
         //     'password' => $request->input('password')
         // ];
         // dd($data);
-        return view('beranda', [
-            'title' => 'Beranda',
-            'email' => $request->input('email'),
-            'password' => $request->input('password')
+        return view('home', [
+            'title' => 'Home',
         ]);
     }
+    
 }

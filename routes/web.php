@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BerandaController;
+use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
@@ -17,5 +18,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [WelcomeController::class, 'welcome']);
+Route::get('/logout', [WelcomeController::class, 'logout']);
 Route::get('/login', [LoginController::class, 'login']);
-Route::post('/beranda', [LoginController::class, 'beranda']);
+// Route::post('/beranda', [LoginController::class, 'beranda']);
+Route::get('/home', [LoginController::class, 'home']);
+Route::post('/submitLogin', [LoginController::class, 'submitLogin']);
+Route::get('/daftar', [DaftarController::class, 'daftar']);
+Route::post('/simpan', [DaftarController::class, 'simpan']);

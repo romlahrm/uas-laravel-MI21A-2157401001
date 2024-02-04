@@ -5,20 +5,47 @@
     font-family: 'Montserrat', sans-serif;
 }
 span{
-    color: rgb(255, 102, 0);
-    background-color: black;
+    color: rgb(233, 244, 247);
+    background-color: rgb(125, 86, 133);
     padding: 2px;
     border-radius: 10px;
 }
 .a{
     margin-top: 40px;
     width: 120px;
+    color: white;
 }
-.center{
+.login{
+    width: 600px;
     margin: 0 auto;
-    /* background-color: azure; */
-    width: 70%;
 }
-.posisi{
-    margin-left: 40%;
+.sub-login{
+    background-color: #0c0eaa;
+    margin-top: 100px;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 2px 3px 2px #b39e9e;
+}
+.wrap-login{
+    margin: 0 auto;
+    width: 90%;
+    padding: 10px;
+}
+.fild{
+    width: 600px;
+    margin: 0 auto;
+}
+.tes{
+    background-color: #f7d40d;
+    margin-top: 100px;
+    border-radius: 10px;
+    box-shadow: 2px 5px #b39e9e;
+}
+.bungkus{
+    margin: 0 auto;
+    width: 90%;
+    padding: 10px;
+}
+button{
+    margin-left: 200px;
 }
